@@ -10,7 +10,7 @@ const SinglePostPage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex h-screen justify-center ">
-        <div>Profile View</div>
+        <div>Post View</div>
       </main>
     </>
   );
