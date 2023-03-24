@@ -11,6 +11,7 @@ import { LoadingPage, LoadingSpinner } from "~/components/loading";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import Link from "next/link";
+import { PageLayout } from "~/components/layout";
 
 dayjs.extend(relativeTime);
 
@@ -132,26 +133,17 @@ const Home: NextPage = () => {
   if (!userLoaded) return <div></div>;
 
   return (
-    <>
-      <Head>
-        <title>Kvitt</title>
-        <meta name="description" content="Emoji based communication" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className="flex h-screen justify-center ">
-        <div className="w-full border-x border-slate-400 md:max-w-2xl">
-          <div className="border-b border-slate-400 p-4">
-            {!isSignedIn && (
-              <div className="flex justify-center">
-                <SignInButton />
-              </div>
-            )}
-            {isSignedIn && <CreatePostWizard />}
+    <PageLayout>
+      <div>
+        {!isSignedIn && (
+          <div className="flex justify-center">
+            <SignInButton />
           </div>
-          <Feed />
-        </div>
-      </main>
-    </>
+        )}
+        {isSignedIn && <CreatePostWizard />}
+      </div>
+      <Feed />
+    </PageLayout>
   );
 };
 
