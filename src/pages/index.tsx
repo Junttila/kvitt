@@ -104,13 +104,15 @@ const Home: NextPage = () => {
 
   return (
     <PageLayout>
-      <div>
-        {!isSignedIn && (
-          <div className="flex justify-center">
-            <SignInButton />
-          </div>
-        )}
-        {isSignedIn && <CreatePostWizard />}
+      <div className="flex border-b border-slate-400 p-4">
+        <div>
+          {!isSignedIn && (
+            <div className="flex justify-center">
+              <SignInButton />
+            </div>
+          )}
+          {isSignedIn && <CreatePostWizard />}
+        </div>
       </div>
       <Feed />
     </PageLayout>
